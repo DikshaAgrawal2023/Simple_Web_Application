@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Podfather Data Display</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Podfather Data</h1>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <input type="text" name="search" placeholder="Search..." class="form-control" value="{{ search }}">
+            </div>
+            <input type="submit" value="Search" class="btn btn-primary">
+        </form>
+        <form action="/search" method="post">
+            <input type="text" name="query" placeholder="Search">
+            <input type="submit" value="Search">
+        </form>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Site</th>
+                    <th>Due By</th>
+                    <th>Completed At</th>
+                    <th>Job Type</th>
+                    <th>Late</th>
+                    <th>Flagged</th>
+                    <th>Number of Items</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+            
+                    <td>{{ row['Customer'] }}</td>
+                    <td>{{ row['Site'] }}</td>
+                    <td>{{ row['Due By'] }}</td>
+                    <td>{{ row['Completed At'] }}</td>
+                    <td>{{ row['Job Type'] }}</td>
+                    <td>{{ row['Late'] }}</td>
+                    <td>{{ row['Flagged'] }}</td>
+                    <td>{{ row['Number of Items'] }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
